@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1><a href="{{ url_for('admin.index') }}">Admin Panel</a></h1>
+    <h1>User List</h1>
+    </br>
+    {% for user in users %}
+        <dl>
+            <dt>
+                <b>User Name:</b> {{ user.xuser_username }}
+                    <form action="{{ url_for('admin.delete_user') }}" method=post class=add-item>
+                        <input type=hidden name=user_to_delete value="{{ user.xuser_id }}"></input>
+                        <input type=submit value="Delete"></input>
+                    </form>
+                    <form action="{{ url_for('admin.update_user', user_id=user['xuser_id']) }}" method=get class=add-item>
+                        <input type=hidden name=user_to_edit value="{{ user.xuser_id }}"></input>
+                        <input type=submit value="Edit"></input>
+                    </form>
+            </dt>
+        </dl>
+    {% endfor %}
+        </br>
+{% endblock %}

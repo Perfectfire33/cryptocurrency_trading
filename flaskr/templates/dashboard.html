@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block header %}
+  <h1>{% block title %}Dashboard{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+<b>Landing Page</b>
+<em>Welcome to the dashboard!</em>
+</br>
+</br>
+<a href="{{ url_for('admin.index') }}">Visit Admin Panel</a>
+</br>
+</br>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1><a href="{{ url_for('admin.index') }}">Admin Panel</a></h1>
+    <h1>Messages</h1>
+    </br>
+    {% for message in messages %}
+        <dl>
+            <dt>
+                <b>Person's Name:</b> {{ message.message_name }}
+                </br><b>Person's Email Address:</b> {{ message.message_email }}
+                </br><b>Message Subject:</b> {{ message.message_subject }}
+                </br><b>Message Body:</b></br> {{ message.message_body }}
+                    <form action="{{ url_for('admin.delete_message') }}" method=post class=add-item>
+                        <input type=hidden name=message_to_delete value="{{ message.message_id }}"></input>
+                        <input type=submit value="Delete"></input>
+                    </form>
+            </dt>
+        </dl>
+    {% endfor %}
+        </br>
+{% endblock %}

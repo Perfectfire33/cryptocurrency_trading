@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=items>
+  {% for item in items %}
+    <li>
+        <h2>File Name:</h2> {{ item.file_name }}
+        <dl>
+                <dt><b>File path on server:</b> {{ item.file_path }}
+                {% if item.file_size >= 1000000 %}
+                    <dt><b>File size on server:</b> {{ item.file_size / 1000000 }} megabytes
+                {% endif %}
+                {% if item.file_size >= 1000 %}
+                    {% if item.file_size < 1000000 %}
+                        <dt><b>File size on server:</b> {{ item.file_size / 1000 }} kilobytes
+                    {% endif %}
+                {% endif %}
+                {% if item.file_size < 1000 %}
+                    <dt><b>File size on server:</b> {{ item.file_size }} bytes
+                {% endif %}
+                <dt><b>File Upload Date:</b> {{ item.file_today_date }}
+                <dd>
+        </dl>
+        <form action="{{ url_for('mediaserver_download_file') }}" method=post class=add-item>
+                <input type=hidden name=file_to_download value="{{ item.file_id }}"></input>
+                <input type=submit value="Download"></input>
+        </form>
+        <form action="{{ url_for('mediaserver_delete_file') }}" method=post class=add-item>
+                <input type=hidden name=file_to_delete value="{{ item.file_id }}"></input>
+                <input type=submit value="Delete"></input>
+        </form>
+  {% else %}
+    <li>
+        <em>No Items Found!</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

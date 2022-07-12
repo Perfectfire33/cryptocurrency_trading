@@ -1,0 +1,14 @@
+run in command prompt before running app:
+SET FLASK_APP=C:\Users\Joseph\Documents\GitHub\cryptocurrency_trading\flaskr\__init__.py
+
+then init the db:
+flask init-db
+
+then start server:
+flask run -h 127.0.0.1 -p 5000
+flask run -h 192.168.142.145 -p 5001
+
+username for testing is:
+admin
+password for 'admin' user is:
+testing
