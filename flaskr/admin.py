@@ -8,7 +8,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 
 import os.path
-
+from datetime import datetime
+import time
+from hashlib import sha512
+import hmac
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -112,6 +115,37 @@ def get_bittrex_markets():
     print(response.headers["Content-Type"])
     return render_template('admin/admin.html')
 
+
+@bp.route('/admin/get_bittrex_balances')
+@login_required
+def get_bittrex_balances():
+    api_url = "https://api.bittrex.com/v3/balances"
+    #timestamp = datetime.now()
+    timestamp = time.time()
+    timestamp_ms = int(timestamp * 1000)
+    timestamp_ms_str = str(timestamp_ms)
+    print("timestamp")
+    print(timestamp_ms)
+    print("timestamp")
+    hash = sha512(''.encode()).hexdigest()
+    print("hash")
+    print(hash)
+    print("hash")
+    api_signature = timestamp_ms_str + api_url + "GET" + hash
+    secret = "a262963c6aac43e99e169b38f5979e5e"
+    signature = hmac.new(secret.encode(), api_signature.encode(), sha512).hexdigest()
+
+    headers = {
+        'Api-Key': '0246a69ab2554e08800a01195937c3d9',
+        'Api-Timestamp': timestamp_ms_str,
+        'Api-Content-Hash': hash,
+        'Api-Signature': signature
+               }
+    response = requests.get(api_url, headers=headers)
+    print(response.json())
+    print(response.status_code)
+    #print(response.headers["Content-Type"])
+    return render_template('admin/admin.html')
 
 
 
