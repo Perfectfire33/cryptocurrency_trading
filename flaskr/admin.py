@@ -18,12 +18,11 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-# If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+# New Imports for Writing to a sheet
+import google.auth
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 
-# The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
-SAMPLE_RANGE_NAME = 'Class Data!A2:E'
 
 bp = Blueprint('admin', __name__)
 
@@ -59,17 +58,25 @@ def post_data():
 @bp.route('/admin/sheet_api_test')
 @login_required
 def sheet_api_test():
+    # If modifying these scopes, delete the file token.json.
+    SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+
+    # The ID and range of a sample spreadsheet.
+    SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
+    SAMPLE_RANGE_NAME = 'Class Data!A2:E'
+
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
     """
     dirname = os.path.dirname(__file__)
     credentials_file = os.path.join(dirname, 'credentials.json')
+    token_file = os.path.join(dirname, 'token.json')
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    if os.path.exists('token.json'):
-        creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+    if os.path.exists(token_file):
+        creds = Credentials.from_authorized_user_file(token_file, SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -79,7 +86,7 @@ def sheet_api_test():
                 credentials_file, SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
-        with open('token.json', 'w') as token:
+        with open(token_file, 'w') as token:
             token.write(creds.to_json())
 
     try:
@@ -105,6 +112,86 @@ def sheet_api_test():
     return render_template('admin/admin.html')
 
 
+
+
+@bp.route('/admin/sheet_api_write_test')
+@login_required
+def sheet_api_write_test():
+    # The ID and range of a sample spreadsheet.
+    SAMPLE_SPREADSHEET_ID = '1LfD5_7n1IcUXadVt4-4eo8XVbjm8dcwturBqCJ96sAY'
+    SAMPLE_RANGE_NAME = 'A1:A1'
+    value_input_option = "USER_ENTERED"
+    _values = [
+                      ['A', 'B'],
+                      ['C', 'D']
+                  ]
+    result = update_values(SAMPLE_SPREADSHEET_ID, SAMPLE_RANGE_NAME, value_input_option, _values)
+
+    print(result)
+
+
+    return render_template('admin/admin.html')
+
+def update_values(spreadsheet_id, range_name, value_input_option,_values):
+    # If modifying these scopes, delete the file token.json.
+    SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+
+    # The ID and range of a sample spreadsheet.
+    SAMPLE_SPREADSHEET_ID = '1LfD5_7n1IcUXadVt4-4eo8XVbjm8dcwturBqCJ96sAY'
+    SAMPLE_RANGE_NAME = 'Class Data!A1'
+
+    """Shows basic usage of the Sheets API.
+    Prints values from a sample spreadsheet.
+    """
+    dirname = os.path.dirname(__file__)
+    credentials_file = os.path.join(dirname, 'credentials.json')
+    token_file = os.path.join(dirname, 'token.json')
+    print(token_file)
+    creds = None
+    # The file token.json stores the user's access and refresh tokens, and is
+    # created automatically when the authorization flow completes for the first
+    # time.
+    if os.path.exists(token_file):
+        #creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+        creds = Credentials.from_authorized_user_file(token_file, SCOPES)
+    # If there are no (valid) credentials available, let the user log in.
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                credentials_file, SCOPES)
+            creds = flow.run_local_server(port=0)
+        # Save the credentials for the next run
+        #with open('token.json', 'w') as token:
+        with open(token_file, 'w') as token:
+            token.write(creds.to_json())
+
+
+    try:
+
+        service = build('sheets', 'v4', credentials=creds)
+        values = [
+            [
+                "A"
+            ],
+            # Additional rows ...
+        ]
+        body = {
+            'values': values
+        }
+        result = service.spreadsheets().values().update(
+            spreadsheetId=spreadsheet_id, range=range_name,
+            valueInputOption=value_input_option, body=body).execute()
+        print(f"{result.get('updatedCells')} cells updated.")
+        return result
+    except HttpError as error:
+        print(f"An error occurred: {error}")
+        return error
+
+
+
+
 @bp.route('/admin/get_bittrex_markets')
 @login_required
 def get_bittrex_markets():
@@ -127,6 +214,7 @@ def get_bittrex_balances():
     print("timestamp")
     print(timestamp_ms)
     print("timestamp")
+    #If there is a body (e.g. post request) encode it here
     hash = sha512(''.encode()).hexdigest()
     print("hash")
     print(hash)
@@ -146,6 +234,22 @@ def get_bittrex_balances():
     print(response.status_code)
     #print(response.headers["Content-Type"])
     return render_template('admin/admin.html')
+
+
+@bp.route('/admin/get_market_ticker')
+@login_required
+def get_market_ticker():
+
+
+
+    return render_template('admin/admin.html')
+
+
+
+
+
+
+
 
 
 
