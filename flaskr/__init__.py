@@ -74,5 +74,8 @@ def create_app(test_config=None):
     from . import faq
     app.register_blueprint(faq.bp)
 
+    from . import bittrexSheets
+    app.register_blueprint(bittrexSheets.bp)
+
 
     return app
