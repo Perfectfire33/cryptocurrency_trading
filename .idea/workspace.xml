@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e00b4877-6392-4152-a4a7-f9ffd3e1faca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flaskr/bittrexSheets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/templates/admin/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/templates/admin/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flaskr/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskr/bittrexSheets.py" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/bittrexSheets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flaskr/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/flaskr/token.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskr/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="207" column="4" lean-forward="true" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="39" />
+            <state relative-caret-position="-3380">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -46,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="180">
+              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -55,11 +50,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flaskr/bittrexSheets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="80">
+              <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskr/tickerSymbols.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7940">
+              <caret line="1184" column="63" selection-start-line="1184" selection-start-column="63" selection-end-line="1184" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -79,8 +83,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskr/templates/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -134,7 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/mediaserver_file_list.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/static/style.css" />
@@ -179,11 +191,12 @@
         <option value="$PROJECT_DIR$/flaskr/templates/admin/messages.html" />
         <option value="$PROJECT_DIR$/flaskr/schema.sql" />
         <option value="$PROJECT_DIR$/flaskr/Readme2" />
-        <option value="$PROJECT_DIR$/flaskr/templates/admin/admin.html" />
         <option value="$PROJECT_DIR$/flaskr/admin.py" />
         <option value="$PROJECT_DIR$/flaskr/__init__.py" />
         <option value="$PROJECT_DIR$/flaskr/templates/dashboard.html" />
         <option value="$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html" />
+        <option value="$PROJECT_DIR$/flaskr/templates/admin/admin.html" />
+        <option value="$PROJECT_DIR$/flaskr/tickerSymbols.json" />
         <option value="$PROJECT_DIR$/flaskr/bittrexSheets.py" />
       </list>
     </option>
@@ -337,16 +350,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/mediaserver_settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#dd#0;n#dl#0;n#form#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -656,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/dashboard.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -670,13 +666,6 @@
           <folding>
             <element signature="e#1#91#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/templates/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -690,27 +679,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html">
+    <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="9" lean-forward="true" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/templates/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="207" column="4" lean-forward="true" selection-start-line="207" selection-start-column="4" selection-end-line="207" selection-end-column="39" />
+        <state relative-caret-position="-3380">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/templates/admin/bittrexSheets.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/tickerSymbols.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7940">
+          <caret line="1184" column="63" selection-start-line="1184" selection-start-column="63" selection-end-line="1184" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/bittrexSheets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="80">
+          <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
